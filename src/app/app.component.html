@@ -1,11 +1,41 @@
-<div>
-  <h2>{{ 'HOME.TITLE' | translate }}</h2>
-  <label>
-        {{ 'HOME.SELECT' | translate }}
-        <select #langSelect (change)="translate.use(langSelect.value)">
-          <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{ lang }}</option>
-        </select>
-      </label>
-</div>
+<div class="{{ 'CLASS' | translate }}" >
 
-<router-outlet></router-outlet>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header pull-right">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#"><img class="logo" src="#" alt="logo"></a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav pull-right">
+          <li [routerLinkActive]="['active']"><a [routerLink]="['/home']">Home</a></li>
+          <li><a (click)="logout()"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+          <li class="welcome">Welcome: </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+
+  <div style="margin-top:50px">
+    <h2>{{ 'HOME.TITLE' | translate }}</h2>
+    <label>
+          {{ 'HOME.SELECT' | translate }}
+          <select #langSelect (change)="translate.use(langSelect.value)">
+            <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{ lang }}</option>
+          </select>
+        </label>
+  </div>
+
+  <router-outlet></router-outlet>
+</div>
