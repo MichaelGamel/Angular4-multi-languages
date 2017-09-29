@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('hamada App', () => {
+describe('Multi kanguages App', () => {
   let page: AppPage;
 
   beforeEach(() => {
