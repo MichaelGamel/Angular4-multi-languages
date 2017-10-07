@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="wrapper">
+    <form name="LoginForm" [formGroup]="form" novalidate="true" role="form" class="form-signin" (submit)="submit(form.controls.usernameField.value,form.controls.passwordField.value,form.controls.rememberMe.value)">
+      <h5 class="form-signin-heading"><img class="logo" src="../../assets/images/logo.png" alt=""></h5>
+      <hr class="colorgraph">
+      <h4 class="message">{{errorMessage}}</h4>
+      <div class="form-group" [ngClass]="{'has-error': !(form.controls.usernameField.valid || (form.controls.usernameField.pristine && !submitted)) }">
+        <input type="text" class="form-control" name="username" placeholder="{{ 'LOGIN.Username' | translate }}" formControlName="usernameField" />
+        <span class="help-block" [hidden]="form.controls.usernameField.valid || (form.controls.usernameField.pristine && !submitted)">Username is required</span>
+      </div>
+
+      <div class="form-group" [ngClass]="{'has-error': !(form.controls.passwordField.valid || (form.controls.passwordField.pristine && !submitted)) }">
+        <input type="password" class="form-control" name="password" placeholder="{{ 'LOGIN.Password' | translate }}" formControlName="passwordField" />
+        <span class="help-block" [hidden]="form.controls.passwordField.valid || (form.controls.passwordField.pristine && !submitted)">Password is required</span>
+      </div>
+
+      <div class="row lang">
+
+        <div class="col-sm-6">
+
+          <div id="remember" class="checkbox">
+            <input formControlName="rememberMe" type="checkbox" id="chkRemember">
+            <label for="chkRemember">
+              <span></span>
+              {{ 'LOGIN.RememberMe' | translate }}
+            </label>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <select #langSelect class="form-control" name="ddlLang" id="ddlLang" (change)="translateService.use(langSelect.value)">
+              <option *ngFor="let lang of translateService.getLangs()" [value]="lang" [selected]="lang === translateService.currentLang">{{ lang }}</option>
+          </select>
+        </div>
+      </div>
+      <button class="btn btn-lg btn-primary btn-block" name="Submit" type="Submit">{{ 'LOGIN.Login' | translate }}</button>
+    </form>
+  </div>
+</div>

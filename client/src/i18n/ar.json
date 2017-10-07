@@ -1,0 +1,13 @@
+{
+    "CLASS": "right-to-left",
+    "LOGIN": {
+        "Username": "اسم المستخدم",
+        "Password": "كلمة المرور",
+        "RememberMe": "تذكرني",
+        "Login": "دخــول"
+    },
+    "HOME": {
+        "TITLE": "مرحباً بكم",
+        "SELECT": "تغيير اللغة"
+    }
+}

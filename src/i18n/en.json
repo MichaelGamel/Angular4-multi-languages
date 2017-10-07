@@ -1,7 +1,0 @@
-{
-    "CLASS":"left-to-right",
-    "HOME": {
-        "TITLE": "Hello Angular with ngx-translate!",
-        "SELECT": "Change language"
-    }
-}
